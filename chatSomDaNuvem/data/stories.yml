@@ -1,0 +1,46 @@
+version: "3.1"
+
+stories:
+  - story: saudacao e problemas comuns
+    steps:
+      - intent: saudacao
+      - action: utter_saudacao
+
+  - story: problema de acesso
+    steps:
+      - intent: problema_acesso
+      - slot_was_set:
+          - problema: "acesso"
+      - action: utter_problema_acesso
+
+  - story: problema de plano
+    steps:
+      - intent: problema_plano
+      - slot_was_set:
+          - problema: "plano"
+      - action: utter_problema_plano
+
+  - story: despedida 
+    steps:
+      - intent: despedida
+      - action: utter_despedida
+
+  - story: problema de aplicativo
+    steps:
+      - intent: problema_aplicativo
+      - slot_was_set:
+          - problema: "aplicativo"
+      - action: utter_problema_aplicativo
+
+  - story: problema de aplicativo nao abrir
+    steps:
+      - intent: problema_aplicativo_nao_abre
+      - slot_was_set:
+          - problema: "abre"
+          - problema: "fecha"
+      - action: utter_problema_aplicativo_nao_abre
+
+  - story: encaminhamento para atendente
+    steps:
+      - intent: problema_geral
+      - action: utter_encaminhamento_atendente

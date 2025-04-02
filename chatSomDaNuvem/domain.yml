@@ -1,0 +1,46 @@
+version: "3.1"
+
+intents:
+  - saudacao
+  - problema_acesso
+  - problema_plano
+  - problema_aplicativo
+  - despedida
+  - problema_geral
+  - problema_aplicativo_nao_abre
+
+entities:
+  - problema
+
+slots:
+  problema:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: problema
+
+responses:
+  utter_saudacao:
+    - text: "Olá somos do Spotify! Como posso ajudá-lo hoje?"
+  
+  utter_despedida:
+    - text: "Até logo! Se precisar de ajuda, estamos sempre por aqui."
+
+  utter_problema_acesso:
+    - text: "Parece que você está tendo problemas para acessar sua conta. Vamos tentar uma solução. Tente redefinir sua senha no link abaixo: [https://accounts.spotify.com/pt-BR/password-reset]."
+
+  utter_problema_plano:
+    - text: "Se deseja mudar seu plano, temos algumas opções disponíveis. Você pode conferir os planos (https://www.spotify.com/br-pt/premium/)."
+
+  utter_problema_aplicativo:
+    - text: "Lamento saber que o aplicativo não está funcionando. Tente fechar e reabrir o aplicativo. Se o problema persistir, acesse o link do nosso suporte [https://support.spotify.com/br-pt/]."
+  
+  utter_problema_aplicativo_nao_abre:
+    - text: "Siga o passo a passo: 1- Feche o aplicativo; 2- Reinicie o celular; Após reiniciar tente abrir novamente;"
+
+  utter_encaminhamento_atendente:
+    - text: "Parece que seu problema é um pouco mais complexo. Vou encaminhá-lo para um atendente humano para que ele possa ajudar melhor. Um momento, por favor..."
+
+actions:
+  - action_fornecer_suporte
